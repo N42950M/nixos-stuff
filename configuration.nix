@@ -100,7 +100,8 @@
     steam-run
     ruffle
     libsForQt5.konversation
-    (import <unstable> {}).appimage-run # sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable AND THEN sudo nix-channel --update unstable
+    appimage-run
+    #(import <unstable> {}).appimage-run # sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable AND THEN sudo nix-channel --update unstable
   ];
 
   fonts.packages = with pkgs; [
@@ -160,6 +161,10 @@
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     plasma-browser-integration
     elisa
+    ksshaskpass
+    kwallet
+    kwalletmanager
+    kwallet-pam
   ];
 
   # enable starship for bash
@@ -226,7 +231,7 @@
     # nvidia-settings menu
     nvidiaSettings = true;
     # gpu driver
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # opentabletdriver for drawing tablets
