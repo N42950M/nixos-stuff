@@ -161,10 +161,6 @@
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     plasma-browser-integration
     elisa
-    ksshaskpass
-    kwallet
-    kwalletmanager
-    kwallet-pam
   ];
 
   # enable starship for bash
