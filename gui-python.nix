@@ -8,6 +8,7 @@ in pkgs.mkShell {
       python-pkgs.opencv4
       python-pkgs.pillow
       python-pkgs.requests
+      python-pkgs.pytube
     ]))
   ];
 }
