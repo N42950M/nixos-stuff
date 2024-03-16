@@ -82,7 +82,7 @@
     winetricks
     cifs-utils
     nfs-utils
-    ffmpeg
+    ffmpeg-full
     kate
     imagemagick
     gifski
@@ -101,6 +101,9 @@
     ruffle
     libsForQt5.konversation
     appimage-run
+    nodejs
+    yt-dlp
+    rpcs3
     #(import <unstable> {}).appimage-run # sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable AND THEN sudo nix-channel --update unstable
   ];
 
@@ -190,8 +193,8 @@
   };    
 
   services.xserver.displayManager.sddm.enable = true; # for kdeplasma
-  services.xserver.displayManager.sddm.theme = "breeze-dark";
-  services.xserver.desktopManager.plasma5.enable = true; # for kdeplasma 
+  #services.xserver.displayManager.sddm.theme = "breeze-dark";
+  services.desktopManager.plasma6.enable = true; # for kdeplasma 
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -232,6 +235,12 @@
 
   # opentabletdriver for drawing tablets
   hardware.opentabletdriver.enable = true;
+
+  # for rpcs3
+  security.pam.loginLimits = [
+    { domain = "*"; item = "nofile"; type = "-"; value = "unlimited"; }
+    { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
